@@ -17,7 +17,18 @@ const useCharacters = () => {
       },
     })
 
-    characters.value.push(...data.data)
+    characters.value.push(
+      ...data.results.map((character) => {
+        return {
+          id: character.id,
+          name: character.name,
+          status: character.status,
+          species: character.species,
+          image: character.image,
+        }
+      }),
+    )
+
     page.value++
   }
 

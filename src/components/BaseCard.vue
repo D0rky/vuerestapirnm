@@ -1,5 +1,4 @@
 <!-- eslint-disable prettier/prettier -->
-<!-- eslint-disable prettier/prettier -->
 <script setup>
 const props = defineProps({
   character: {
@@ -8,6 +7,8 @@ const props = defineProps({
       _id: -1,
       name: 'Unknown',
       imageUrl: 'https://via.placeholder.com/150',
+      status: 'Unknown',
+      species: 'Unknown',
     }),
   },
 })
@@ -20,12 +21,16 @@ const props = defineProps({
   >
     <img
       class="w-full rounded-t-lg object-cover"
-      :src="props.character.imageUrl"
+      :src="props.character.image"
     />
     <div class="p-4">
       <h2 class="text-1xl font-semibold text-gray-800">
         {{ props.character.name }}
       </h2>
+      <p class="text-sm text-gray-600">Status: {{ props.character.status }}</p>
+      <p class="text-sm text-gray-600">
+        Species: {{ props.character.species }}
+      </p>
     </div>
   </RouterLink>
 </template>
